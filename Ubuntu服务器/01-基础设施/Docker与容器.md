@@ -13,15 +13,21 @@ status: running
 
 ## 版本与策略
 
-| 项目 | 当前值 |
-| --- | --- |
-| Docker Engine | `29.7.2` |
-| Docker Compose | `5.4.0` |
-| Buildx | `0.36.1` |
-| Root Dir | `/mnt/docker-data/docker` |
-| 镜像加速 | `https://docker.1panel.live/` |
-| 普通用户 | `shadowdu` 可直接运行 Docker |
-| Restart Policy | 中间件统一 `unless-stopped` |
+| 项目             | 当前值                           |
+| -------------- | ----------------------------- |
+| Docker Engine  | `29.7.2`                      |
+| Docker Compose | `5.4.0`                       |
+| Buildx         | `0.36.1`                      |
+| Root Dir       | `/mnt/docker-data/docker`     |
+| 镜像加速           | `https://docker.1panel.live/` |
+| 普通用户           | `shadowdu` 可直接运行 Docker       |
+| Restart Policy | 中间件统一 `unless-stopped`        |
+|                |                               |
+URL: http://192.168.1.117:31788/manage_d12fa1e2f3
+Port: 31788
+Security entrance: manage_d12fa1e2f3
+Username: admin_d12fa1e2f3
+Password: xIqdWWrVWYZ6EjT1eB5ayEMd
 
 ## Compose 项目
 
