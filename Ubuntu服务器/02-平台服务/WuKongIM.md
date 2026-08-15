@@ -17,15 +17,15 @@ status: running
 
 ## 服务卡
 
-| 项目 | 当前值 |
-| --- | --- |
-| 容器 | `mall4cloud-wukongim` |
-| 版本 | `v2.2.2-20251229` |
-| HTTP API | `http://192.168.1.117:5001` |
-| WebSocket | `ws://192.168.1.117:5200` |
-| 配置 | `config/wukongim/wk.yaml` |
-| 数据卷 | `mall4cloud-wukongim-data` |
-| 日志卷 | `mall4cloud-wukongim-logs` |
+| 项目        | 当前值                         |     |
+| --------- | --------------------------- | --- |
+| 容器        | `mall4cloud-wukongim`       |     |
+| 版本        | `v2.2.2-20251229`           |     |
+| HTTP API  | `http://192.168.1.117:5001` |     |
+| WebSocket | `ws://192.168.1.117:5200`   |     |
+| 配置        | `config/wukongim/wk.yaml`   |     |
+| 数据卷       | `mall4cloud-wukongim-data`  |     |
+| 日志卷       | `mall4cloud-wukongim-logs`  |     |
 
 ## 单节点配置
 
