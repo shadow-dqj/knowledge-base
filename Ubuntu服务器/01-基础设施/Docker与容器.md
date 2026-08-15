@@ -2,7 +2,7 @@
 title: Docker 与容器
 type: infrastructure
 tags: [docker, compose, 基础设施]
-updated: 2026-08-13
+updated: 2026-08-15
 server: 192.168.1.117
 status: running
 ---
@@ -35,13 +35,15 @@ Password: xIqdWWrVWYZ6EjT1eB5ayEMd
 | --- | --- | --- |
 | `mall4cloud-middleware` | `/home/shadowdu/services/mall4cloud-middleware` | 13/13 running |
 | `metamcp` | `/home/shadowdu/services/metamcp` | 2/2 healthy |
+| `new-api` | `/opt/1panel/apps/new-api/new-api` | 1/1 healthy |
+| `dify` | `/home/shadowdu/services/dify` | 15 running + 1 init exited(0) |
 
 ## 健康模型
 
 | 类型 | 服务 |
 | --- | --- |
-| Docker healthcheck | MySQL、Redis、Nacos、MongoDB、Elasticsearch、MetaMCP、MetaMCP PostgreSQL |
-| 仅进程状态 | MinIO、Seata、XXL-Job、Canal、RocketMQ 三组件、WuKongIM |
+| Docker healthcheck | MySQL、Redis、Nacos、MongoDB、Elasticsearch、MetaMCP、MetaMCP PostgreSQL、New API、Dify API/PostgreSQL/Redis/Sandbox |
+| 仅进程状态 | MinIO、Seata、XXL-Job、Canal、RocketMQ 三组件、WuKongIM、Dify 其余常驻服务 |
 
 > [!warning] 状态含义
 > `running` 不等于业务可用。无 healthcheck 服务必须执行 [[../03-运维手册/日常巡检#应用级检查|应用级检查]]。
@@ -77,6 +79,10 @@ docker compose restart mall4cloud-nacos
 | MetaMCP `compose.yaml` | `600` |
 | MetaMCP `.env` | `600` |
 | MetaMCP `update.sh` | `700` |
+| Dify `.env` | `600` |
+| Dify `docker-compose.override.yaml` | `600` |
+| Dify `update-images.sh` | `750` |
+| New API `update.sh` | `755`，root 所有 |
 
 ## 相关
 
