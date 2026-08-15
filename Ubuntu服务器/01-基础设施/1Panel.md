@@ -2,7 +2,7 @@
 title: 1Panel
 type: management
 tags: [1panel, 管理平台]
-updated: 2026-08-13
+updated: 2026-08-15
 server: 192.168.1.117
 status: running
 ---
@@ -41,7 +41,9 @@ sudo 1pctl version
 1Panel 可识别 Compose 项目，但未接管或覆盖 `/mnt/docker-data`、Docker daemon 或 containerd 的机械盘配置。
 
 > [!check] 面板预期
-> “容器 → 编排”显示 `mall4cloud-middleware` 13/13、`metamcp` 2/2。
+> “容器 → 编排”显示 `mall4cloud-middleware` 13/13、`metamcp` 2/2、
+> `new-api` 1/1，以及 `dify` 15 个常驻容器。Dify 的
+> `init_permissions` 为一次性初始化容器，`Exited (0)` 属正常状态。
 
 ## 相关
 
