@@ -17,14 +17,14 @@ status: running
 
 ## 服务卡
 
-| 项目 | 当前值 |
-| --- | --- |
-| 容器 | `mall4cloud-job` |
-| 镜像 | `xuxueli/xxl-job-admin:3.3.2` |
-| Console | `http://192.168.1.117:8090/xxl-job-admin/` |
-| 容器端口 | 8080 |
-| 依赖 | MySQL `mall4cloud_job` |
-| Executor Token | 见 [[Ubuntu服务器/_敏感/中间件凭据清单]] |
+| 项目             | 当前值                                        |
+| -------------- | ------------------------------------------ |
+| 容器             | `mall4cloud-job`                           |
+| 镜像             | `xuxueli/xxl-job-admin:3.3.2`              |
+| Console        | `http://192.168.1.117:8090/xxl-job-admin/` |
+| 容器端口           | 8080                                       |
+| 依赖             | MySQL `mall4cloud_job`                     |
+| Executor Token | 见 [[Ubuntu服务器/_敏感/中间件凭据清单]]                |
 
 ## 应用级验证
 
