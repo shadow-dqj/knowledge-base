@@ -172,45 +172,45 @@ resource: "192.168.0.25"
 
 ## 十、变更与排障记录
 
-### Seata Correction (20260901_134534)
+### Seata 修正 (20260901_134534)
 
-- Seata persistence database initialized from the repository's Mall4cloud Seata 2.6 initialization SQL.
-- Verified tables: branch_table, distributed_lock, global_table, lock_table, vgroup_table.
-- Verified Seata Server storage connectivity and Marketing global transaction creation after restart.
-- Backup and initialization evidence: `/data/mall4cloud/backup/seata-db-init-20260901_134534`
+- Seata 持久化数据库已根据仓库自带的 Mall4cloud Seata 2.6 初始化 SQL 完成初始化。
+- 已验证的表：branch_table、distributed_lock、global_table、lock_table、vgroup_table。
+- 已确认 Seata Server 存储连通性，以及重启后 Marketing 全局事务可正常创建。
+- 备份与初始化证据：`/data/mall4cloud/backup/seata-db-init-20260901_134534`
 
-### Nginx IP-only Split Configuration (20260901_154306)
+### Nginx 仅 IP 拆分配置 (20260901_154306)
 
-- Main include: `/data/nginx/nginx.conf` loads `/etc/nginx/conf.d/test-ip.conf`.
-- IP server: `test-ip.conf` defines `server_name 192.168.0.25 _`.
-- Retained configuration: all 14 original files remain in `/data/nginx/conf.d`; per-system files are active `location` route fragments included by the IP server.
-- Domain status: no active configuration contains a production domain or an independent domain-based server block.
-- External verification: all seven frontend routes, Gateway API, and Nacos proxy returned HTTP 200.
-- Browser-reachable MinIO endpoint: `http://192.168.0.25:9000`.
-- Backup: `/data/mall4cloud/backup/nginx-ip-split-20260901_154306`.
+- 主 include：`/data/nginx/nginx.conf` 加载 `/etc/nginx/conf.d/test-ip.conf`。
+- IP server：`test-ip.conf` 定义了 `server_name 192.168.0.25 _`。
+- 保留的配置：原有的 14 个文件仍保留在 `/data/nginx/conf.d`；各系统文件是 IP server 所 include 的、当前激活的 `location` 路由片段。
+- 域名状态：当前没有任何激活配置包含生产域名，也不存在独立的、基于域名的 server 块。
+- 外部验证：7 个前端路由、Gateway API 与 Nacos 代理均返回 HTTP 200。
+- 可通过浏览器访问的 MinIO 端点：`http://192.168.0.25:9000`。
+- 备份：`/data/mall4cloud/backup/nginx-ip-split-20260901_154306`。
 
-### Gudong Test Connectivity (20260901)
+### 咕咚 (Gudong) 测试连通性 (20260901)
 
-- Network connectivity is confirmed independently in both directions between Mall4j `192.168.0.25/24` and Gudong `192.168.0.23/24`; both three-packet ping checks completed with 0% loss.
-- Mall4j -> Gudong: TCP `22`, `80`, `443`, `62336` (face), and `62340` (main) are reachable. `GET /externalpay/notice` returns `405 Allow: POST` through both `https://kjzxface.stsh.vip` (resolved to `192.168.0.23` for the check) and direct `http://192.168.0.23:62336`, confirming the callback route is active.
-- Gudong -> Mall4j: TCP `22`, `80`, `8000`, and `9000` are reachable; TCP `443` is not listening on Mall4j. Requests to `http://192.168.0.25/api/mall4cloud_payment/ua/external/pay/query` and `http://192.168.0.25/api/mall4cloud_invoice/ua/external/pay/invoice/query` reach the backend and return the expected missing-parameter validation response.
-- The Mall4j IP-only Nginx API prefix is `/api/`. Direct paths such as `http://192.168.0.25/mall4cloud_payment/...` are not exposed and return `404`.
-- Gudong `fore-kf2` currently resolves `api.sdstsh.cn` to production `192.168.0.12`. Before test integration, replace the Gudong test runtime payment/invoice base URLs with `http://192.168.0.25/api/mall4cloud_payment` and `http://192.168.0.25/api/mall4cloud_invoice`; do not retain the production host override.
-- For strict test IP-only integration, use `http://192.168.0.23:62336/externalpay/notice` as the Gudong payment notification endpoint. Confirm any configured access token or IP allowlist separately before end-to-end payment testing.
+- 已独立确认 Mall4j `192.168.0.25/24` 与咕咚 `192.168.0.23/24` 之间双向网络连通；两次三包 ping 检查均 0% 丢包。
+- Mall4j -> 咕咚：TCP `22`、`80`、`443`、`62336`（人脸）与 `62340`（主站）可达。`GET /externalpay/notice` 通过 `https://kjzxface.stsh.vip`（本检查解析到 `192.168.0.23`）与直连 `http://192.168.0.23:62336` 均返回 `405 Allow: POST`，确认回调路由已生效。
+- 咕咚 -> Mall4j：TCP `22`、`80`、`8000` 与 `9000` 可达；Mall4j 上 `443` 未监听。访问 `http://192.168.0.25/api/mall4cloud_payment/ua/external/pay/query` 与 `http://192.168.0.25/api/mall4cloud_invoice/ua/external/pay/invoice/query` 均可到达后端，并返回预期的缺参校验响应。
+- Mall4j 仅 IP 模式下 Nginx API 前缀为 `/api/`。诸如 `http://192.168.0.25/mall4cloud_payment/...` 的直连路径未开放，返回 `404`。
+- 咕咚 `fore-kf2` 当前将 `api.sdstsh.cn` 解析到生产 `192.168.0.12`。在接入测试前，请将咕咚测试运行时的支付/发票基础 URL 替换为 `http://192.168.0.25/api/mall4cloud_payment` 与 `http://192.168.0.25/api/mall4cloud_invoice`；不要保留生产主机覆盖。
+- 若需严格按测试仅 IP 模式对接，请以 `http://192.168.0.23:62336/externalpay/notice` 作为咕咚支付通知端点。在进行端到端支付测试前，请另行确认已配置的访问令牌或 IP 白名单。
 
-### MinIO Browser Image Correction (20260901_191327)
+### MinIO 浏览器图片修正 (20260901_191327)
 
-- The platform fallback URL `/platform/static/png/def-CpHfKefR.png` is a bundled default image, not an upload endpoint. The `img-show` component switches to it after the original image request fails.
-- Platform source, `.env.testing`, and the deployed bundle all use `http://192.168.0.25:9000/mall4cloud`; no production `.12` resource URL remains in the deployed platform bundle.
-- Root cause: the `mall4cloud` bucket contained the synchronized objects but had no anonymous bucket policy, so unsigned browser image requests returned `403`.
-- Applied policy: anonymous access is limited to `s3:GetObject` on `arn:aws:s3:::mall4cloud/*`. Bucket listing, anonymous PUT, and anonymous DELETE remain denied with `403`.
-- Verification from Gudong host `192.168.0.23`: multiple real PNG objects return `200` through direct MinIO `9000` and the retained Nginx `/minio/` proxy; the platform origin receives the expected CORS headers.
-- No frontend rebuild or service restart was required. Policy backup and verification evidence: `/data/mall4cloud/backup/minio-public-read-20260901_191327`.
+- 平台兜底地址 `/platform/static/png/def-CpHfKefR.png` 是打包内置的默认图片，并非上传端点。`img-show` 组件在原始图片请求失败后切换至该图。
+- 平台源码、`.env.testing` 与已部署包均使用 `http://192.168.0.25:9000/mall4cloud`；已部署平台包中不再残留生产 `.12` 资源地址。
+- 根因：`mall4cloud` 桶虽包含已同步的对象，但没有匿名桶策略，导致无签名的浏览器图片请求返回 `403`。
+- 应用策略：匿名访问仅限定为 `arn:aws:s3:::mall4cloud/*` 上的 `s3:GetObject`。桶列表、匿名 PUT 与匿名 DELETE 仍返回 `403` 拒绝。
+- 来自咕咚主机 `192.168.0.23` 的验证：多个真实 PNG 对象通过直连 MinIO `9000` 及保留的 Nginx `/minio/` 代理均返回 `200`；平台源端能收到预期的 CORS 头。
+- 无需前端重新构建或服务重启。策略备份与验证证据：`/data/mall4cloud/backup/minio-public-read-20260901_191327`。
 
-### Nacos Console Firewall Correction (20260901_194214)
+### Nacos 控制台防火墙修正 (20260901_194214)
 
-- Nacos was already listening on `8080` and returned the login page locally, but firewalld did not expose `8080/tcp` to other hosts.
-- Added `8080/tcp` to both runtime and permanent rules in the `public` zone; no Nacos restart or configuration change was required.
-- Verified from Gudong host `192.168.0.23`: `/index.html`, the main JavaScript, the main CSS, and the Nacos logo all return HTTP `200`.
-- Direct console URL: `http://192.168.0.25:8080/index.html#/login`.
-- Firewall state backup: `/data/mall4cloud/backup/nacos-firewall-20260901_194214`.
+- Nacos 已在 `8080` 监听并在本机返回登录页面，但 firewalld 未向其他主机开放 `8080/tcp`。
+- 已在 `public` 区域的运行时与永久规则中均加入 `8080/tcp`；无需重启 Nacos 或改动其配置。
+- 已从咕咚主机 `192.168.0.23` 验证：`/index.html`、主 JavaScript、主 CSS 与 Nacos 徽标均返回 HTTP `200`。
+- 控制台直连地址：`http://192.168.0.25:8080/index.html#/login`。
+- 防火墙状态备份：`/data/mall4cloud/backup/nacos-firewall-20260901_194214`。
