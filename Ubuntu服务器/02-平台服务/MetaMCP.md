@@ -3,7 +3,7 @@ title: MetaMCP
 type: service
 tags: [metamcp, mcp, postgres]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 service: metamcp
 status: healthy
 ---
@@ -22,7 +22,7 @@ status: healthy
 | Compose 目录 | `/home/shadowdu/services/metamcp` |
 | App 镜像 | `ghcr.io/metatool-ai/metamcp:latest` |
 | PostgreSQL | `postgres:16-alpine` |
-| LAN 入口 | `http://192.168.1.117:12008` |
+| LAN 入口 | `http://192.168.1.109:12008` |
 | PostgreSQL 发布 | 仅容器网络，不向 LAN 发布 |
 | 数据卷 | `metamcp_postgres_data` |
 | 更新脚本 | `./update.sh`，权限 `700` |
