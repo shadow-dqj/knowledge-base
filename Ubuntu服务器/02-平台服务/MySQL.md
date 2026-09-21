@@ -3,7 +3,7 @@ title: MySQL
 type: service
 tags: [mysql, database, mall4cloud]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 service: mall4cloud-mysql
 status: healthy
 ---
@@ -21,7 +21,7 @@ status: healthy
 | --- | --- |
 | 容器 | `mall4cloud-mysql` |
 | 镜像 | `mysql:8.0.44` |
-| LAN | `192.168.1.117:3306` |
+| LAN | `192.168.1.109:3306` |
 | 数据卷 | `mall4cloud-mysql-data` → `/var/lib/mysql` |
 | 初始化目录 | `config/mysql-init` → `/docker-entrypoint-initdb.d` |
 | 账号 | root、canal；见 [[Ubuntu服务器/_敏感/中间件凭据清单]] |
