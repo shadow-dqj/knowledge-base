@@ -3,7 +3,7 @@ title: MongoDB
 type: service
 tags: [mongodb, database, mall4cloud]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 service: mall4cloud-mongo
 status: healthy
 ---
@@ -20,7 +20,7 @@ status: healthy
 | 项目 | 当前值 |
 | --- | --- |
 | 容器 | `mall4cloud-mongo` |
-| LAN | `192.168.1.117:27017` |
+| LAN | `192.168.1.109:27017` |
 | 配置 | `config/mongo/mongodb.conf` |
 | 初始化 | `config/mongo/init` |
 | 数据卷 | `mall4cloud-mongo-data` |
