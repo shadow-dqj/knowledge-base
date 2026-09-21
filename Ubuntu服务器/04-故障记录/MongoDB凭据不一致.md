@@ -3,7 +3,7 @@ title: MongoDB 凭据不一致
 type: incident
 tags: [mongodb, 凭据, product]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 status: resolved
 ---
 
