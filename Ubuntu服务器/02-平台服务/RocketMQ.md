@@ -3,7 +3,7 @@ title: RocketMQ 服务族
 type: service-group
 tags: [rocketmq, mq, mall4cloud]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 service: rocketmq
 status: running
 ---
@@ -31,14 +31,14 @@ Dashboard -> Nameserver
 mall4cloud Java clients -> Nameserver/Broker
 ```
 
-Broker 对外广播地址为 `192.168.1.117:10911`。当前 Broker 未发现 ACL AccessKey/SecretKey；Dashboard 登录见 [[Ubuntu服务器/_敏感/中间件凭据清单]]。
+Broker 对外广播地址为 `192.168.1.109:10911`。当前 Broker 未发现 ACL AccessKey/SecretKey；Dashboard 登录见 [[Ubuntu服务器/_敏感/中间件凭据清单]]。
 
 ## 应用级验证
 
 ```bash
 docker logs --tail=100 mall4cloud-rocketmq-namesrv
 docker logs --tail=100 mall4cloud-rocketmq-broker
-curl -I http://192.168.1.117:8180/
+curl -I http://192.168.1.109:8180/
 ```
 
 > [!check] 成功判据
