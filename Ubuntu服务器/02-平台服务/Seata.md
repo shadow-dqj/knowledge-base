@@ -3,7 +3,7 @@ title: Seata
 type: service
 tags: [seata, transaction, mall4cloud]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 service: mall4cloud-seata
 status: running
 ---
@@ -20,7 +20,7 @@ status: running
 | 项目 | 当前值 |
 | --- | --- |
 | 容器 | `mall4cloud-seata` |
-| LAN | `192.168.1.117:8091` |
+| LAN | `192.168.1.109:8091` |
 | Console 9091 | 仅容器网络，未发布到 LAN |
 | 配置 | `config/seata/application.yml` |
 | JDBC Driver | `config/seata/mysql-connector-j-8.0.33.jar` |
