@@ -3,7 +3,7 @@ title: Nacos
 type: service
 tags: [nacos, registry, config]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 service: mall4cloud-nacos
 status: healthy
 ---
@@ -19,10 +19,10 @@ status: healthy
 
 | 用途 | 地址 |
 | --- | --- |
-| Console | `http://192.168.1.117:8080/index.html` |
-| API | `192.168.1.117:8848` |
-| gRPC | `192.168.1.117:9848/9849` |
-| Windows Hosts | `192.168.1.117 nacos.mall4cloud.local` |
+| Console | `http://192.168.1.109:8080/index.html` |
+| API | `192.168.1.109:8848` |
+| gRPC | `192.168.1.109:9848/9849` |
+| Windows Hosts | `192.168.1.109 nacos.mall4cloud.local` |
 
 ## 数据与命名空间
 
@@ -36,7 +36,7 @@ status: healthy
 
 ## 已完成修正
 
-- 26 条旧 IP `192.168.1.41` 已替换为 `192.168.1.117`。
+- 26 条旧 IP `192.168.1.41` 已替换为 `192.168.1.109`。
 - 空 tenant 和 `public` 的对应配置保持一致。
 - MongoDB 密码已在两套配置中同步。
 - 修改前备份见 [[Ubuntu服务器/03-运维手册/备份与升级#已有备份]]。
@@ -45,7 +45,7 @@ status: healthy
 
 ```bash
 docker inspect -f '{{.State.Health.Status}}' mall4cloud-nacos
-curl -I http://192.168.1.117:8080/index.html
+curl -I http://192.168.1.109:8080/index.html
 ```
 
 > [!warning] Nacos 3 API
