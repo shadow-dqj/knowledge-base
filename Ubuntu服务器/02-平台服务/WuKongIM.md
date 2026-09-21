@@ -3,7 +3,7 @@ title: WuKongIM
 type: service
 tags: [wukongim, websocket, im]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 service: mall4cloud-wukongim
 status: running
 ---
@@ -21,8 +21,8 @@ status: running
 | --------- | --------------------------- | --- |
 | 容器        | `mall4cloud-wukongim`       |     |
 | 版本        | `v2.2.2-20251229`           |     |
-| HTTP API  | `http://192.168.1.117:5001` |     |
-| WebSocket | `ws://192.168.1.117:5200`   |     |
+| HTTP API  | `http://192.168.1.109:5001` |     |
+| WebSocket | `ws://192.168.1.109:5200`   |     |
 | 配置        | `config/wukongim/wk.yaml`   |     |
 | 数据卷       | `mall4cloud-wukongim-data`  |     |
 | 日志卷       | `mall4cloud-wukongim-logs`  |     |
@@ -37,7 +37,7 @@ status: running
 ## 应用级验证
 
 ```bash
-curl -I http://192.168.1.117:5001
+curl -I http://192.168.1.109:5001
 docker logs --tail=100 mall4cloud-wukongim
 ```
 
