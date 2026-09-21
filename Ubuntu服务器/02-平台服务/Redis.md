@@ -3,7 +3,7 @@ title: Redis
 type: service
 tags: [redis, cache, mall4cloud]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 service: mall4cloud-redis
 status: healthy
 ---
@@ -21,7 +21,7 @@ status: healthy
 | --- | --- |
 | 容器 | `mall4cloud-redis` |
 | 镜像 | `redis:8.4.0` |
-| LAN | `192.168.1.117:6379` |
+| LAN | `192.168.1.109:6379` |
 | 数据卷 | `mall4cloud-redis-data` → `/data` |
 | 认证 | `requirepass`；见 [[Ubuntu服务器/_敏感/中间件凭据清单]] |
 | 持久化 | `appendonly yes`、`appendfsync everysec` |
