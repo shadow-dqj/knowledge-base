@@ -3,7 +3,7 @@ title: XXL-Job
 type: service
 tags: [xxl-job, scheduler, mall4cloud]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 service: mall4cloud-job
 status: running
 ---
@@ -21,7 +21,7 @@ status: running
 | -------------- | ------------------------------------------ |
 | 容器             | `mall4cloud-job`                           |
 | 镜像             | `xuxueli/xxl-job-admin:3.3.2`              |
-| Console        | `http://192.168.1.117:8090/xxl-job-admin/` |
+| Console        | `http://192.168.1.109:8090/xxl-job-admin/` |
 | 容器端口           | 8080                                       |
 | 依赖             | MySQL `mall4cloud_job`                     |
 | Executor Token | 见 [[Ubuntu服务器/_敏感/中间件凭据清单]]                |
@@ -29,7 +29,7 @@ status: running
 ## 应用级验证
 
 ```bash
-curl -I http://192.168.1.117:8090/xxl-job-admin/
+curl -I http://192.168.1.109:8090/xxl-job-admin/
 docker logs --tail=100 mall4cloud-job
 ```
 
