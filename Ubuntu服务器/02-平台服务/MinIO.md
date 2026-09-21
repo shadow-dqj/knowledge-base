@@ -3,7 +3,7 @@ title: MinIO
 type: service
 tags: [minio, object-storage, mall4cloud]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 service: mall4cloud-minio
 status: running
 ---
@@ -21,15 +21,15 @@ status: running
 | --- | --- |
 | 容器 | `mall4cloud-minio` |
 | 版本 | `RELEASE.2025-09-07T16-13-09Z` |
-| API | `http://192.168.1.117:9000` |
-| Console | `http://192.168.1.117:9001` |
+| API | `http://192.168.1.109:9000` |
+| Console | `http://192.168.1.109:9001` |
 | 数据卷 | `mall4cloud-minio-data` → `/data` |
 | Bucket | `mall4cloud` |
 
 ## 应用级验证
 
 ```bash
-curl -I http://192.168.1.117:9001
+curl -I http://192.168.1.109:9001
 docker logs --tail=100 mall4cloud-minio
 ```
 
