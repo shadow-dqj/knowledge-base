@@ -3,7 +3,7 @@ title: Order Provider 缺失
 type: incident
 tags: [dubbo, order, xxl-job, product]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 status: dependency-missing
 ---
 
