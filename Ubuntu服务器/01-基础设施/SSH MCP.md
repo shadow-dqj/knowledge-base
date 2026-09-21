@@ -3,7 +3,7 @@ title: SSH MCP
 type: integration
 tags: [ssh, mcp, windows]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 status: connected
 ---
 
@@ -16,7 +16,7 @@ status: connected
 | 项目 | 当前值 |
 | --- | --- |
 | MCP 名称 | `ubuntu-ssh` |
-| 目标 | `shadowdu@192.168.1.117:22` |
+| 目标 | `shadowdu@192.168.1.109:22` |
 | 认证 | Ed25519 私钥 |
 | Server authorized keys | `/home/shadowdu/.ssh/authorized_keys` |
 
