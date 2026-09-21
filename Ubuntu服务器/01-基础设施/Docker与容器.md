@@ -3,7 +3,7 @@ title: Docker 与容器
 type: infrastructure
 tags: [docker, compose, 基础设施]
 updated: 2026-08-15
-server: 192.168.1.117
+server: 192.168.1.109
 status: running
 ---
 
@@ -23,7 +23,7 @@ status: running
 | 普通用户           | `shadowdu` 可直接运行 Docker       |
 | Restart Policy | 中间件统一 `unless-stopped`        |
 |                |                               |
-URL: http://192.168.1.117:31788/manage_d12fa1e2f3
+URL: http://192.168.1.109:31788/manage_d12fa1e2f3
 Port: 31788
 Security entrance: manage_d12fa1e2f3
 Username: admin_d12fa1e2f3
