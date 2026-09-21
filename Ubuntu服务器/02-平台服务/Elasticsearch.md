@@ -3,7 +3,7 @@ title: Elasticsearch
 type: service
 tags: [elasticsearch, search, mall4cloud]
 updated: 2026-08-13
-server: 192.168.1.117
+server: 192.168.1.109
 service: mall4cloud-elasticsearch
 status: healthy
 ---
@@ -20,7 +20,7 @@ status: healthy
 | 项目 | 当前值 |
 | --- | --- |
 | 容器 | `mall4cloud-elasticsearch` |
-| LAN API | `http://192.168.1.117:9200` |
+| LAN API | `http://192.168.1.109:9200` |
 | Transport 9300 | 仅容器网络 |
 | 配置 | `config/elasticsearch/elasticsearch.yml` |
 | 插件目录 | `config/elasticsearch/plugins` |
@@ -31,7 +31,7 @@ status: healthy
 ## 验证
 
 ```bash
-curl -u '<见凭据清单>' http://192.168.1.117:9200/_cluster/health
+curl -u '<见凭据清单>' http://192.168.1.109:9200/_cluster/health
 docker exec mall4cloud-elasticsearch \
   /usr/share/elasticsearch/bin/elasticsearch-plugin list
 ```
