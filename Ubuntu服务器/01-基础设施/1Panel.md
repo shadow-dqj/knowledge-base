@@ -3,7 +3,7 @@ title: 1Panel
 type: management
 tags: [1panel, 管理平台]
 updated: 2026-08-15
-server: 192.168.1.117
+server: 192.168.1.109
 status: running
 ---
 
@@ -18,7 +18,7 @@ status: running
 
 | 项目 | 当前值 |
 | --- | --- |
-| 监听 | `192.168.1.117:31788` |
+| 监听 | `192.168.1.109:31788` |
 | 授权网段 | `192.168.1.0/24` |
 | IPv6 面板监听 | 关闭 |
 | 凭据文件 | `/home/shadowdu/.config/1panel/admin-credentials.txt` |
