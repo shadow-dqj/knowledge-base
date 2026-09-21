@@ -3,7 +3,7 @@ title: New API
 type: service
 tags: [new-api, ai, gateway, 1panel]
 updated: 2026-08-15
-server: 192.168.1.117
+server: 192.168.1.109
 service: new-api
 status: healthy
 ---
@@ -20,7 +20,7 @@ status: healthy
 
 | 项目 | 当前值 |
 | --- | --- |
-| LAN 入口 | `http://192.168.1.117:3000` |
+| LAN 入口 | `http://192.168.1.109:3000` |
 | Compose 项目 | `new-api` |
 | Compose 目录 | `/opt/1panel/apps/new-api/new-api` |
 | 容器 | `1Panel-new-api-Mokn` |
@@ -53,7 +53,7 @@ cd /opt/1panel/apps/new-api/new-api
 docker inspect 1Panel-new-api-Mokn \
   --format 'image={{.Config.Image}} health={{.State.Health.Status}}'
 
-curl -fsS http://192.168.1.117:3000/api/status
+curl -fsS http://192.168.1.109:3000/api/status
 ```
 
 预期：
@@ -67,7 +67,7 @@ curl -fsS http://192.168.1.117:3000/api/status
 
 端口 3000 当前绑定所有 IPv4/IPv6 接口。服务器目前位于局域网且 UFW
 规则未启用；如后续增加公网路由、端口映射或云防火墙规则，应先将绑定
-收紧到 `192.168.1.117` 或限制来源地址。
+收紧到 `192.168.1.109` 或限制来源地址。
 
 ## 相关
 
