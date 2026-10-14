@@ -2,17 +2,20 @@
 title: WuKongIM
 type: service
 tags: [wukongim, websocket, im]
-updated: 2026-08-13
-server: 192.168.1.109
+updated: 2026-10-14
+server: 192.168.3.59
 service: mall4cloud-wukongim
-status: running
+status: verification-pending
 ---
 
 # WuKongIM
 
+> [!warning] 2026-10-14 地址同步
+> 机器已迁至 `192.168.3.59`，下列入口与检查命令已按新 IP 更新；文档更新不代表运行配置已迁移或服务已恢复。正文版本、资源及 `healthy/running` 描述保留为历史基线，本次状态和待同步项见 [[Ubuntu服务器/首页#2026-10-14 IP 迁移核验|IP 迁移核验]]。
+
 [[Ubuntu服务器/首页|← 运维中心]] · [[Ubuntu服务器/03-运维手册/端口与依赖矩阵]] · [[Ubuntu服务器/_敏感/中间件凭据清单|凭据]]
 
-> [!warning] 状态
+> [!warning] 历史状态（2026-08 基线）
 > WuKongIM 容器 running、RestartCount 0；无 Docker healthcheck。
 
 ## 服务卡
@@ -21,8 +24,8 @@ status: running
 | --------- | --------------------------- | --- |
 | 容器        | `mall4cloud-wukongim`       |     |
 | 版本        | `v2.2.2-20251229`           |     |
-| HTTP API  | `http://192.168.1.109:5001` |     |
-| WebSocket | `ws://192.168.1.109:5200`   |     |
+| HTTP API  | `http://192.168.3.59:5001` |     |
+| WebSocket | `ws://192.168.3.59:5200`   |     |
 | 配置        | `config/wukongim/wk.yaml`   |     |
 | 数据卷       | `mall4cloud-wukongim-data`  |     |
 | 日志卷       | `mall4cloud-wukongim-logs`  |     |
@@ -37,7 +40,7 @@ status: running
 ## 应用级验证
 
 ```bash
-curl -I http://192.168.1.109:5001
+curl -I http://192.168.3.59:5001
 docker logs --tail=100 mall4cloud-wukongim
 ```
 
