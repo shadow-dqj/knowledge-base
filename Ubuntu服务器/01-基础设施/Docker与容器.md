@@ -2,12 +2,15 @@
 title: Docker 与容器
 type: infrastructure
 tags: [docker, compose, 基础设施]
-updated: 2026-08-15
-server: 192.168.1.109
-status: running
+updated: 2026-10-14
+server: 192.168.3.59
+status: verification-pending
 ---
 
 # Docker 与容器
+
+> [!warning] 2026-10-14 地址同步
+> 机器已迁至 `192.168.3.59`，下列入口与检查命令已按新 IP 更新；文档更新不代表运行配置已迁移或服务已恢复。正文版本、资源及 `healthy/running` 描述保留为历史基线，本次状态和待同步项见 [[Ubuntu服务器/首页#2026-10-14 IP 迁移核验|IP 迁移核验]]。
 
 [[Ubuntu服务器/首页|← 运维中心]] · [[服务器与存储]] · [[../03-运维手册/启停与恢复]]
 
@@ -23,7 +26,7 @@ status: running
 | 普通用户           | `shadowdu` 可直接运行 Docker       |
 | Restart Policy | 中间件统一 `unless-stopped`        |
 |                |                               |
-URL: http://192.168.1.109:31788/manage_d12fa1e2f3
+URL: http://192.168.3.59:31788/manage_d12fa1e2f3
 Port: 31788
 Security entrance: manage_d12fa1e2f3
 Username: admin_d12fa1e2f3
