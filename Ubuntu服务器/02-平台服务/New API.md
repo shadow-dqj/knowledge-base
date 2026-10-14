@@ -2,17 +2,20 @@
 title: New API
 type: service
 tags: [new-api, ai, gateway, 1panel]
-updated: 2026-08-15
-server: 192.168.1.109
+updated: 2026-10-14
+server: 192.168.3.59
 service: new-api
-status: healthy
+status: verification-pending
 ---
 
 # New API
 
+> [!warning] 2026-10-14 地址同步
+> 机器已迁至 `192.168.3.59`，下列入口与检查命令已按新 IP 更新；文档更新不代表运行配置已迁移或服务已恢复。正文版本、资源及 `healthy/running` 描述保留为历史基线，本次状态和待同步项见 [[Ubuntu服务器/首页#2026-10-14 IP 迁移核验|IP 迁移核验]]。
+
 [[Ubuntu服务器/首页|← 运维中心]] · [[平台服务索引]] · [[Ubuntu服务器/01-基础设施/1Panel]] · [[Ubuntu服务器/03-运维手册/备份与升级]]
 
-> [!check] 当前状态
+> [!warning] 历史状态（2026-08 基线）
 > 2026-08-15 已从 `v0.13.2` 在线更新到 `v1.0.0-rc.24`，容器 healthy，
 > `/api/status` 返回 `success=true`。
 
@@ -20,7 +23,7 @@ status: healthy
 
 | 项目 | 当前值 |
 | --- | --- |
-| LAN 入口 | `http://192.168.1.109:3000` |
+| LAN 入口 | `http://192.168.3.59:3000` |
 | Compose 项目 | `new-api` |
 | Compose 目录 | `/opt/1panel/apps/new-api/new-api` |
 | 容器 | `1Panel-new-api-Mokn` |
@@ -53,7 +56,7 @@ cd /opt/1panel/apps/new-api/new-api
 docker inspect 1Panel-new-api-Mokn \
   --format 'image={{.Config.Image}} health={{.State.Health.Status}}'
 
-curl -fsS http://192.168.1.109:3000/api/status
+curl -fsS http://192.168.3.59:3000/api/status
 ```
 
 预期：
@@ -67,7 +70,7 @@ curl -fsS http://192.168.1.109:3000/api/status
 
 端口 3000 当前绑定所有 IPv4/IPv6 接口。服务器目前位于局域网且 UFW
 规则未启用；如后续增加公网路由、端口映射或云防火墙规则，应先将绑定
-收紧到 `192.168.1.109` 或限制来源地址。
+收紧到 `192.168.3.59` 或限制来源地址。
 
 ## 相关
 
