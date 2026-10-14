@@ -2,17 +2,20 @@
 title: Dify
 type: service
 tags: [dify, ai, workflow, rag, docker]
-updated: 2026-08-15
-server: 192.168.1.109
+updated: 2026-10-14
+server: 192.168.3.59
 service: dify
-status: healthy
+status: verification-pending
 ---
 
 # Dify
 
+> [!warning] 2026-10-14 地址同步
+> 机器已迁至 `192.168.3.59`，下列入口与检查命令已按新 IP 更新；文档更新不代表运行配置已迁移或服务已恢复。正文版本、资源及 `healthy/running` 描述保留为历史基线，本次状态和待同步项见 [[Ubuntu服务器/首页#2026-10-14 IP 迁移核验|IP 迁移核验]]。
+
 [[Ubuntu服务器/首页|← 运维中心]] · [[平台服务索引]] · [[Ubuntu服务器/01-基础设施/Docker与容器]] · [[Ubuntu服务器/03-运维手册/备份与升级]]
 
-> [!check] 当前状态
+> [!warning] 历史状态（2026-08 基线）
 > 官方 Community `1.16.1` 已部署。15 个常驻服务运行，API healthy；
 > `init_permissions` 以状态码 `0` 正常退出。
 
@@ -20,7 +23,7 @@ status: healthy
 
 | 项目 | 当前值 |
 | --- | --- |
-| LAN 入口 | `http://192.168.1.109:12009` |
+| LAN 入口 | `http://192.168.3.59:12009` |
 | Compose 项目 | `dify` |
 | 部署目录 | `/home/shadowdu/services/dify` |
 | 主配置 | `docker-compose.yaml` |
@@ -67,7 +70,7 @@ Browser :12009
 
 | 发布端口 | 绑定 | 用途 |
 | ---: | --- | --- |
-| 12009 | `192.168.1.109` | HTTP/UI/API |
+| 12009 | `192.168.3.59` | HTTP/UI/API |
 | 12010 | `127.0.0.1` | HTTPS 预留 |
 | 5003 | `127.0.0.1` | Plugin Daemon 调试 |
 
@@ -89,7 +92,7 @@ Sandbox Key、Plugin 内部 Key，以及 Agent API/Server/Shell Token。
 说明容器和数据库已就绪，但尚未通过 Web 页面创建首个管理员账号。打开：
 
 ```text
-http://192.168.1.109:12009
+http://192.168.3.59:12009
 ```
 
 ## 日常管理
@@ -137,9 +140,9 @@ docker compose config --quiet
 docker compose ps -a
 
 curl -LsS -o /dev/null -w '%{http_code}\n' \
-  http://192.168.1.109:12009/
-curl -fsS http://192.168.1.109:12009/console/api/setup
-curl -fsS http://192.168.1.109:12009/console/api/system-features
+  http://192.168.3.59:12009/
+curl -fsS http://192.168.3.59:12009/console/api/setup
+curl -fsS http://192.168.3.59:12009/console/api/system-features
 ```
 
 如 API 容器重建后 Nginx 暂时缓存旧容器地址并返回 `502`：
