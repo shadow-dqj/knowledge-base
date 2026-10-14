@@ -2,24 +2,27 @@
 title: 1Panel
 type: management
 tags: [1panel, 管理平台]
-updated: 2026-08-15
-server: 192.168.1.109
-status: running
+updated: 2026-10-14
+server: 192.168.3.59
+status: verification-pending
 ---
 
 # 1Panel
 
+> [!warning] 2026-10-14 地址同步
+> 机器已迁至 `192.168.3.59`，下列入口与检查命令已按新 IP 更新；文档更新不代表运行配置已迁移或服务已恢复。正文版本、资源及 `healthy/running` 描述保留为历史基线，本次状态和待同步项见 [[Ubuntu服务器/首页#2026-10-14 IP 迁移核验|IP 迁移核验]]。
+
 [[Ubuntu服务器/首页|← 运维中心]] · [[Docker与容器]] · [[网络与防火墙]]
 
-> [!info] 状态
+> [!info] 历史状态（2026-08 基线）
 > 版本 `v2.2.5 stable`；Core 和 Agent 均 active/enabled。
 
 ## 接入
 
 | 项目 | 当前值 |
 | --- | --- |
-| 监听 | `192.168.1.109:31788` |
-| 授权网段 | `192.168.1.0/24` |
+| 目标监听 | `192.168.3.59:31788`（新地址端口未核验） |
+| 授权网段 | 历史为 `192.168.1.0/24`；换网后实际规则待核验，按客户端来源最小化调整，不视为已放行 `192.168.3.0/24` |
 | IPv6 面板监听 | 关闭 |
 | 凭据文件 | `/home/shadowdu/.config/1panel/admin-credentials.txt` |
 | 凭据权限 | `600` |
